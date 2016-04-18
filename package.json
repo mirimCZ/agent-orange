@@ -1,0 +1,29 @@
+{
+  "name": "agent-orange",
+  "version": "1.0.0",
+  "description": "Long live Sodom!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirimCZ/agent-orange.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/mirimCZ/agent-orange/issues"
+  },
+  "homepage": "https://github.com/mirimCZ/agent-orange#readme",
+  "dependencies": {
+    "amd-optimize": "^0.6.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-requirejs": "^0.1.3",
+    "requirejs": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.2.2"
+  }
+}
