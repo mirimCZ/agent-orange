@@ -1,9 +1,10 @@
 ;define('fileupload/index', [
-  'fileupload/constants'
-], function(constants) {
-  console.log('constants are', constants);
+  'fileupload/constants',
+  'hbs!fileupload/page'
+], function(constants, page) {
   return {
     someKey: 'someValue',
-    constants: constants
+    constants: constants,
+    page: page
   }
 })

@@ -7,8 +7,18 @@ gulp.task('js', function() {
       name: 'main',
       baseUrl: 'src/browser',
       out: 'build.js',
+      stubModules: ['hbs'],
+      pragmasOnSave: {
+        excludeHbsParser: true,
+        excludeHbs: true,
+        excludeAfterBuild: true
+      },
+      paths: {
+        hbs: '../../node_modules/require-handlebars-plugin/hbs'
+      },
       include: [
-        '../../node_modules/requirejs/require.js'
+        '../../node_modules/requirejs/require.js',
+        '../../node_modules/require-handlebars-plugin/hbs/handlebars.runtime'
       ]
     })
     .pipe(gulp.dest('./build/')); // pipe it to the output DIR

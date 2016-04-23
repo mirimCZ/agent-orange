@@ -1,4 +1,3 @@
-console.log('call for require');
 requirejs.config({
   baseUrl: "./",
   paths: {
@@ -6,5 +5,9 @@ requirejs.config({
 });
 
 define('main', ['fileupload/index'], function(fup) {
-  console.log('fup', fup);
+  return function() {
+    console.log('main executed');
+    console.log('fup', fup);
+    console.log(fup.page());
+  }
 })
