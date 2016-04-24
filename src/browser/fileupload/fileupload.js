@@ -1,4 +1,4 @@
-;define('fileupload/index', [
+;define('fileupload/fileupload', [
   'fileupload/constants',
   'hbs!fileupload/page',
   'immutable',
@@ -8,11 +8,9 @@
     return document.getElementById(constants.get('elementId'));
   }
 
-  console.log(dux.getState().fileUpload.toObject());
-
   var render = function(state) {
-    // Dont do .inerHTML = it is dangerous.
     var state = dux.getState().fileUpload.toObject();
+    // Dont do .inerHTML = it is dangerous.
     getModuleElement().innerHTML = page(state);
   }
 

@@ -4,7 +4,7 @@ requirejs.config({
   }
 });
 
-define('main', ['fileupload/index', 'redux/dux'], function(fup, dux) {
+define('main', ['fileupload/fileupload', 'redux/dux'], function(fup, dux) {
   return function() {
     dux.subscribe(function() {
       fup.render();
