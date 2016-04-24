@@ -3,7 +3,7 @@
   return immutable.Map({
     elementId: 'fileupload',
     actions: {
-      'ADD_FILES': 'ADD_FILES'
+      ADD_FILES: 'ADD_FILES'
     },
     STATUS: {
       OK: 0

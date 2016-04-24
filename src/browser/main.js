@@ -9,6 +9,7 @@ define('main', ['fileupload/fileupload', 'redux/dux'], function(fup, dux) {
     dux.subscribe(function() {
       fup.render();
     });
+    fup.render();
   }
 });
 
