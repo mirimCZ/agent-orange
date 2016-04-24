@@ -10,6 +10,9 @@
     actions: actions,
     getState: function() {
       return store.getState();
+    },
+    subscribe: function(callback) {
+      store.subscribe(callback);
     }
   };
 });

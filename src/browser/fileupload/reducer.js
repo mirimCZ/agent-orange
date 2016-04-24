@@ -14,8 +14,7 @@
 
     switch(action.type) {
       case constants.get('actions').ADD_FILES:
-        console.log('reducer: add files', action.payload);
-        return state;
+        return state.set('files', actions.payload);
         break;
 
       default:

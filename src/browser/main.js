@@ -4,9 +4,11 @@ requirejs.config({
   }
 });
 
-define('main', ['fileupload/index'], function(fup) {
+define('main', ['fileupload/index', 'redux/dux'], function(fup, dux) {
   return function() {
-    fup.render();
+    dux.subscribe(function() {
+      fup.render();
+    });
   }
 });
 

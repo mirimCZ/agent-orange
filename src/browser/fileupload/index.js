@@ -15,9 +15,12 @@
     var state = dux.getState().fileUpload.toObject();
     getModuleElement().innerHTML = page(state);
   }
+
+  setTimeout(dux.actions.addFiles, 1500);
+
   return {
     render: function() {
       render();
-    },
+    }
   }
 })
