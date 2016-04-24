@@ -2,7 +2,7 @@
   'fileupload/constants',
   'hbs!fileupload/page',
   'immutable',
-  'redux-instance'
+  'redux/dux'
 ], function(constants, page, Immutable, dux) {
   function getModuleElement() {
     return document.getElementById(constants.get('elementId'));
