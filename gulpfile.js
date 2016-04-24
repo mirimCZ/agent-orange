@@ -17,7 +17,6 @@ gulp.task('js', function() {
       paths: {
         hbs: '../../node_modules/require-handlebars-plugin/hbs',
         jquery: '../../node_modules/jquery/dist/jquery.min',
-        handlebars: '../../node_modules/require-handlebars-plugin/hbs/handlebars',
       },
       include: [
         '../../node_modules/immutable/dist/immutable.js',

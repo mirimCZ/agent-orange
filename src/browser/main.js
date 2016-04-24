@@ -31,7 +31,7 @@ define('uid', function() {
   }
 });
 
-// TODO: move elsehere
+// TODO: move elsewhere
 define('templates/helpers/map', ['hbs/handlebars'], function(Handlebars) {
   var map = function(context, options) {
     var ret = "";

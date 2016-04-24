@@ -16,8 +16,15 @@
 
   function render() {
     // NOTE: deeply transfer to plain objects
+    var dateStart = new Date();
     var state = JSON.parse(JSON.stringify(dux.getState().fileUpload));
     element.html(page(state));
+    var dateEnd = new Date();
+
+    var timeStart = parseInt(dateStart.getSeconds() + '' + dateStart.getMilliseconds());
+    var timeEnd = parseInt(dateEnd.getSeconds() + '' + dateEnd.getMilliseconds());
+
+    console.log('render', timeEnd - timeStart);
   }
 
   return {

@@ -9,6 +9,14 @@
           files: fileList
         }
       }
-    }
+    },
+    uploadFile: function(file) {
+      return {
+        type: names.UPLOAD_FILE,
+        payload: {
+          file: file
+        }
+      }
+    },
   });
 })
