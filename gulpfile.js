@@ -18,10 +18,11 @@ gulp.task('js', function() {
         jquery: '../../node_modules/jquery/dist/jquery.min'
       },
       include: [
-        '../../node_modules/requirejs/require.js',
-        '../../node_modules/require-handlebars-plugin/hbs/handlebars.runtime',
         '../../node_modules/immutable/dist/immutable.js',
-        '../../node_modules/redux/dist/redux.js'
+        '../../node_modules/redux-logger/dist/index.js',
+        '../../node_modules/redux/dist/redux.js',
+        '../../node_modules/require-handlebars-plugin/hbs/handlebars.runtime',
+        '../../node_modules/requirejs/require.js'
       ]
     })
     .pipe(gulp.dest('./build/')); // pipe it to the output DIR

@@ -19,3 +19,7 @@ define('immutable', ['../../node_modules/immutable/dist/immutable.js'], function
 define('redux', ['../../node_modules/redux/dist/redux.js'], function(Redux) {
   return Redux;
 });
+
+define('redux-logger', ['../../node_modules/redux-logger/dist/index.js'], function(Logger) {
+  return Logger;
+})
