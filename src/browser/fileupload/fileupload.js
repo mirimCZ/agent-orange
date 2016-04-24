@@ -2,21 +2,30 @@
   'fileupload/constants',
   'hbs!fileupload/page',
   'immutable',
-  'redux/dux'
-], function(constants, page, Immutable, dux) {
-  function getModuleElement() {
-    return document.getElementById(constants.get('elementId'));
+  'jquery',
+  'redux/dux',
+], function(constants, page, Immutable, jquery, dux) {
+
+  var element = jQuery('#' + constants.get('elementId'));
+
+  function addListeners() {
+    element.on('change', '#file-upload-input', function(event) {
+      dux.actions.addFiles(event.target.files);
+    })
   }
 
-  var render = function(state) {
-    var state = dux.getState().fileUpload.toObject();
-    // Dont do .inerHTML = it is dangerous.
-    getModuleElement().innerHTML = page(state);
+  function render() {
+    // NOTE: deeply transfer to plain objects
+    var state = JSON.parse(JSON.stringify(dux.getState().fileUpload));
+    element.html(page(state));
   }
-
-  setTimeout(dux.actions.addFiles, 1500);
 
   return {
+    main: function() {
+      // NOTE: if needed can be serialized, but shouldnt be
+      addListeners();
+      render();
+    },
     render: function() {
       render();
     }

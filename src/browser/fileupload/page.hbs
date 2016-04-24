@@ -1,3 +1,29 @@
 <div>
-  {{labels.uploadComplete}}
+  <label for="file-upload-input" class="btn file_upload-btn">
+    {{labels.uploadButton}}
+    <input
+      id="file-upload-input"
+      type="file"
+      class="file hide novalidate"
+      multiple
+      />
+  </label>
+
+  <table>
+    {{#eacho files}}
+      <tr class="file_upload-file_list-item">
+      	<td>{{name}}</td>
+      	<td>{{size}}</td>
+      	<td>Progress</td>
+      	<td>
+          <button
+            type="button"
+            class="btn btn-round file_upload-file_list-item-remove novalidate"
+            >
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </td>
+      </tr>
+    {{/eacho}}
+  </table>
 </div>

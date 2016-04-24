@@ -5,8 +5,9 @@
     actions: {
       ADD_FILES: 'ADD_FILES'
     },
-    STATUS: {
-      OK: 0
+    status: {
+      ok: 0,
+      inQueue: 1
     }
   })
 })

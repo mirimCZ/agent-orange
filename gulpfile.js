@@ -13,9 +13,11 @@ gulp.task('js', function() {
         excludeHbs: true,
         excludeAfterBuild: true
       },
+      // NOTE: .js is added automaticaly and cannot be given explicitly
       paths: {
         hbs: '../../node_modules/require-handlebars-plugin/hbs',
-        jquery: '../../node_modules/jquery/dist/jquery.min'
+        jquery: '../../node_modules/jquery/dist/jquery.min',
+        handlebars: '../../node_modules/require-handlebars-plugin/hbs/handlebars',
       },
       include: [
         '../../node_modules/immutable/dist/immutable.js',
@@ -33,11 +35,16 @@ gulp.task('server', function() {
   path.normalize('node src/server/main.js')
 })
 
-gulp.task('css', function() {
+gulp.task('less', function() {
   return gulp.src('./src/browser/**/*.less')
     .pipe(plugins.concat('build.css'))
     .pipe(plugins.less())
     .pipe(gulp.dest('./build'));
 })
 
-gulp.task('default', ['js', 'css']);
+gulp.task('watch', function() {
+  gulp.watch(['./src/browser/**/*.js', './src/browser/**/*.hbs'], ['js']);
+  gulp.watch(['./src/browser/**/*.less'], ['less']);
+})
+
+gulp.task('default', ['js', 'watch']);
