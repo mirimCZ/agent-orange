@@ -32,8 +32,8 @@ define('uid', function() {
 });
 
 // TODO: move elsehere
-define('templates/helpers/eacho', ['hbs/handlebars'], function(Handlebars) {
-  var eacho = function(context, options) {
+define('templates/helpers/map', ['hbs/handlebars'], function(Handlebars) {
+  var map = function(context, options) {
     var ret = "";
     var keys = Object.keys(context);
 
@@ -44,6 +44,6 @@ define('templates/helpers/eacho', ['hbs/handlebars'], function(Handlebars) {
     return ret;
   };
 
-  Handlebars.registerHelper('eacho', eacho);
-  return eacho;
+  Handlebars.registerHelper('map', map);
+  return map;
 });
