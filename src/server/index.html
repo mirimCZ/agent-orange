@@ -4,10 +4,31 @@
         <title>My Sample Project</title>
         <!-- data-main attribute tells require.js to load
              scripts/main.js after require.js loads. -->
-        <script src="assets/build.js"></script>
+        <script src="/assets/build.js"></script>
+        <link rel="stylesheet" href="/assets/build.css">
     </head>
     <body>
-        <h1>My Sample Win</h1>
+        <div id="fileupload"
+          data-intialState='{
+            "labels":{
+              "uploadComplete":"Upload complete label",
+              "uploading":"Uploading label",
+              "ready":"Ready label",
+              "invalidFileFormat":"Invalid file format label",
+              "failed":"Failed label",
+              "totalSizeExceeded":"Total size exceeded label",
+              "unresolvedErrors":"Unresolved errors label",
+              "uploadNotFinished":"Upload not finished label",
+              "failedUploads":"Filed uploads label"
+            },
+            "texts":{
+              "invalidFileFormat":"Invalid file format text",
+              "failed":"Failed text",
+              "exceededFileCount":"Exceeded file count text",
+              "totalSizeExceeded":"Total size exceeded text"
+            }
+          }'
+          ></div>
     </body>
     <script>
     require(['main'], function (main) {
