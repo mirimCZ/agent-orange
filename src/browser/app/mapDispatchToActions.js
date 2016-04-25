@@ -1,4 +1,4 @@
-;define('redux/mapDispatchToActions', [
+;define('app/mapDispatchToActions', [
   'redux',
   'immutable',
   // NOTE: all actions need to be registered here

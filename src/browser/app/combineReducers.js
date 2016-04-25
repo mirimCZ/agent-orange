@@ -1,4 +1,4 @@
-;define('redux/combineReducers', [
+;define('app/combineReducers', [
   'redux',
   // NOTE: all reducers need to be registered here
   'fileupload/reducer'

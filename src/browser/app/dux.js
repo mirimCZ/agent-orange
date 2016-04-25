@@ -1,9 +1,10 @@
-;define('redux/dux', [
+;define('app/dux', [
   'redux',
   'redux-logger',
-  'redux/mapDispatchToActions',
-  'redux/combineReducers'
-], function(Redux, Logger, mapDispatchToActions, combineReducers) {
+  'redux-promise-middleware',
+  'app/mapDispatchToActions',
+  'app/combineReducers'
+], function(Redux, Logger, Promises, mapDispatchToActions, combineReducers) {
   // TODO: solve initial state
 
   var logger = Logger({
@@ -14,10 +15,10 @@
     }
   });
 
-  var middlewares = Redux.applyMiddleware(logger);
+  var middlewares = Redux.applyMiddleware(Promises, logger);
   var store = middlewares(Redux.createStore)(combineReducers(), {});
   var actions = mapDispatchToActions(store.dispatch);
-  
+
   return {
     actions: actions,
     getState: function() {

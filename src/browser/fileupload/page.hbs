@@ -4,7 +4,7 @@
     <input
       id="file-upload-input"
       type="file"
-      class="file hide novalidate"
+      class="file-upload-input file hide novalidate"
       multiple
       />
   </label>
@@ -14,6 +14,7 @@
       <tr data-fileId="{{id}}" class="file_upload-file_list-item">
       	<td>{{name}}</td>
       	<td>{{size}}</td>
+        <td>{{status}}</td>
       	<td>Progress</td>
       	<td>
           <button
@@ -26,4 +27,6 @@
       </tr>
     {{/map}}
   </table>
+
+  <button class="start-upload">Start upload</button>
 </div>

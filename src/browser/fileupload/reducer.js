@@ -1,9 +1,15 @@
 ;define('fileupload/reducer', [
-  'fileupload/actions',
   'fileupload/constants',
   'immutable',
   'uid'
-], function(actions, constants, immutable, uid) {
+], function(constants, immutable, uid) {
+
+  function uploadFileStatus(state, file, statusKey) {
+    return state.setIn(
+      ['files', file.get('id')],
+      file.set('status', constants.get('status').get(statusKey))
+    );
+  }
 
   return function(state, action) {
     if (!state) {
@@ -13,8 +19,7 @@
           document.getElementById(constants.get('elementId')).getAttribute('data-intialState')
         )
       ).merge({
-        files: immutable.List(),
-        rawFiles: []
+        files: immutable.Map()
       });
     }
 
@@ -29,7 +34,7 @@
             size: file.size,
             type: file.type,
             progress: 0,
-            status: constants.get('status').inQueue,
+            status: constants.get('status').get('inQueue'),
             rawFile: file
           }));
         }, new immutable.Map());
@@ -38,6 +43,10 @@
           .update('files', function(oldFiles) {
             return oldFiles.merge(files);
           });
+        break;
+
+      case constants.get('actions').UPLOAD_FILE_START:
+        return uploadFileStatus(state, actions.payload.file, 'uploadInProgress');
         break;
 
       default:

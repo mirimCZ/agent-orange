@@ -3,14 +3,26 @@
   'hbs!fileupload/page',
   'immutable',
   'jquery',
-  'redux/dux',
+  'app/dux',
 ], function(constants, page, Immutable, jquery, dux) {
 
   var element = jQuery('#' + constants.get('elementId'));
 
   function addListeners() {
-    element.on('change', '#file-upload-input', function(event) {
+    element.on('change', '.file-upload-input', function(event) {
       dux.actions.addFiles(event.target.files);
+    });
+
+    element.on('click', '.start-upload', function(event) {
+      var fileToUpload = dux.getState().fileUpload.get('files').find(function(file) {
+        return file.get('status') === constants.get('status').get('inQueue');
+      });
+
+      if(fileToUpload) {
+        dux.actions.uploadFile(fileToUpload);
+      } else {
+        console.log('Nothing to upload?');
+      }
     })
   }
 

@@ -16,17 +16,18 @@ gulp.task('js', function() {
       // NOTE: .js is added automaticaly and cannot be given explicitly
       paths: {
         hbs: '../../node_modules/require-handlebars-plugin/hbs',
+        immutable: '../../node_modules/immutable/dist/immutable',
         jquery: '../../node_modules/jquery/dist/jquery.min',
+        redux: '../../node_modules/redux/dist/redux',
+        'redux-logger': '../../node_modules/redux-logger/dist/index',
+        'redux-promise-middleware': '../../node_modules/redux-promise-middleware/dist/index',
       },
       include: [
-        '../../node_modules/immutable/dist/immutable.js',
-        '../../node_modules/redux-logger/dist/index.js',
-        '../../node_modules/redux/dist/redux.js',
         '../../node_modules/require-handlebars-plugin/hbs/handlebars.runtime',
-        '../../node_modules/requirejs/require.js'
+        '../../node_modules/requirejs/require.js',
       ]
     })
-    .pipe(gulp.dest('./build/')); // pipe it to the output DIR
+    .pipe(gulp.dest('./build/'));
 });
 
 // TODO: run server from gulp, single command start ftw

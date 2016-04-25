@@ -4,7 +4,7 @@ requirejs.config({
   }
 });
 
-define('main', ['fileupload/fileupload', 'redux/dux'], function(fup, dux) {
+define('main', ['fileupload/fileupload', 'app/dux'], function(fup, dux) {
   return function() {
     dux.subscribe(function() {
       fup.render();
@@ -12,18 +12,6 @@ define('main', ['fileupload/fileupload', 'redux/dux'], function(fup, dux) {
     fup.main();
   }
 });
-
-define('immutable', ['../../node_modules/immutable/dist/immutable.js'], function(Immutable) {
-  return Immutable;
-});
-
-define('redux', ['../../node_modules/redux/dist/redux.js'], function(Redux) {
-  return Redux;
-});
-
-define('redux-logger', ['../../node_modules/redux-logger/dist/index.js'], function(Logger) {
-  return Logger;
-})
 
 define('uid', function() {
   return function() {
@@ -38,7 +26,7 @@ define('templates/helpers/map', ['hbs/handlebars'], function(Handlebars) {
     var keys = Object.keys(context);
 
     keys.map(function(key) {
-      ret = ret + options.fn(context[key][1]);
+      ret = ret + options.fn(context[key]);
     })
 
     return ret;
